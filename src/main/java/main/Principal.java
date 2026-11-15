@@ -1,16 +1,19 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package main;
+
+import controlador.ControladorSistema;
 
 /**
  *
  * @author Melissa Acuña C10057
  */
-public class Proyecto_LibroInteractivo {
+public class Principal {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        ControladorSistema controlador = new ControladorSistema();
+        controlador.iniciar();
     }
 }
