@@ -21,7 +21,7 @@ public class GUI_ColoresSecundarios extends javax.swing.JFrame {
     }
      public void addButtonListener(ActionListener listener) {
 
-        btnVolverMenu.setActionCommand("MENU");
+        btnVolverMenu.setActionCommand("VOLVER AL MENU");
         btnRegresar.setActionCommand("REGRESAR");
         btnSiguiente.setActionCommand("ACTIVIDAD");
 

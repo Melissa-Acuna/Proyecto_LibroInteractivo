@@ -54,7 +54,7 @@ public class ControladorSistema implements ActionListener {
                 break;
 
             case "SALIR":
-                salirSistema();
+                System.exit(0);
                 break;
         }
     }
@@ -71,22 +71,11 @@ public class ControladorSistema implements ActionListener {
         GUI_ActividadColores vistaActividad = new GUI_ActividadColores();
         GUI_Resultados vistaResultados = new GUI_Resultados();
 
-        controladorColores = new ControladorColores(
-                modelo,
-                vista,
-                vistaPrimarios,
-                vistaSecundarios,
-                vistaActividad,
-                vistaResultados
-        );
+        controladorColores = new ControladorColores(modelo, vista, vistaPrimarios, vistaSecundarios, vistaActividad, vistaResultados);
 
         vista.setVisible(false);
 
         controladorColores.iniciar();
     }
 
-    public void salirSistema() {
-
-        System.exit(0);
-    }
 }

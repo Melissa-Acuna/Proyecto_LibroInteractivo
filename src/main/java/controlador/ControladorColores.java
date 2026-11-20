@@ -66,12 +66,9 @@ public class ControladorColores implements ActionListener {
             resultados.setVisible(true);
             break;
 
-        case "VOLVER":
+        case "VOLVER AL MENU":
             vistaPrimarios.setVisible(false);
             vistaMenu.setVisible(true);
-            break;
-
-        case "MENU":
             vistaSecundarios.setVisible(false);
             actividadColores.setVisible(false);
             resultados.setVisible(false);

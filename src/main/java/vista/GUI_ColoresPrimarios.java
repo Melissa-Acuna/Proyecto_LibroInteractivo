@@ -22,7 +22,7 @@ public class GUI_ColoresPrimarios extends javax.swing.JFrame {
     }
      public void addButtonListener(ActionListener listener) {
 
-        btnVolverMenu.setActionCommand("VOLVER");
+        btnVolverMenu.setActionCommand("VOLVER AL MENU");
         btnSiguiente.setActionCommand("SIGUIENTE");
 
         btnVolverMenu.addActionListener(listener);
