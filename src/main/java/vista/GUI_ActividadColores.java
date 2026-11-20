@@ -24,7 +24,7 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
 
         
 
-        btnVolverMenu.setActionCommand("MENU");
+        btnVolverMenu.setActionCommand("VOLVER AL MENU");
         btnRegresar.setActionCommand("REGRESAR_ACTIVIDAD");
         btnSiguiente.setActionCommand("RESULTADOS");
 
@@ -51,18 +51,12 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
         ColorSecundario1 = new javax.swing.JLabel();
         ColorSecundario2 = new javax.swing.JLabel();
         ColorSecundario3 = new javax.swing.JLabel();
-        chkRojo = new javax.swing.JCheckBox();
-        chkAzul = new javax.swing.JCheckBox();
-        chkVerde = new javax.swing.JCheckBox();
-        chkAmarillo = new javax.swing.JCheckBox();
-        chkAzul1 = new javax.swing.JCheckBox();
-        chkRojo1 = new javax.swing.JCheckBox();
-        chkAmarillo1 = new javax.swing.JCheckBox();
-        chkVerde1 = new javax.swing.JCheckBox();
-        chkVerde2 = new javax.swing.JCheckBox();
-        chkAzul2 = new javax.swing.JCheckBox();
-        chkRojo2 = new javax.swing.JCheckBox();
-        chkAmarillo2 = new javax.swing.JCheckBox();
+        btnRojoAmarillo = new javax.swing.JButton();
+        btnAzulAmarillo = new javax.swing.JButton();
+        btnAmarilloAzul = new javax.swing.JButton();
+        btnAzulRojo = new javax.swing.JButton();
+        btnRojoAzul = new javax.swing.JButton();
+        btnAmarilloRojo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,53 +87,24 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
         ColorSecundario3.setText("Morado");
         pnlBack.add(ColorSecundario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
-        chkRojo.setForeground(new java.awt.Color(0, 0, 0));
-        chkRojo.setText("Rojo");
-        pnlBack.add(chkRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        btnRojoAmarillo.setText("Rojo + Amarillo");
+        btnRojoAmarillo.addActionListener(this::btnRojoAmarilloActionPerformed);
+        pnlBack.add(btnRojoAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        chkAzul.setForeground(new java.awt.Color(0, 0, 0));
-        chkAzul.setText("Azul");
-        pnlBack.add(chkAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
+        btnAzulAmarillo.setText("Azul + Amarillo");
+        pnlBack.add(btnAzulAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
 
-        chkVerde.setForeground(new java.awt.Color(0, 0, 0));
-        chkVerde.setText("Verde");
-        pnlBack.add(chkVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        btnAmarilloAzul.setText("Amarillo + Azul");
+        pnlBack.add(btnAmarilloAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
-        chkAmarillo.setForeground(new java.awt.Color(0, 0, 0));
-        chkAmarillo.setText("Amarillo");
-        pnlBack.add(chkAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
+        btnAzulRojo.setText("Azul + Rojo");
+        pnlBack.add(btnAzulRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
-        chkAzul1.setForeground(new java.awt.Color(0, 0, 0));
-        chkAzul1.setText("Azul");
-        pnlBack.add(chkAzul1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        btnRojoAzul.setText("Rojo + Azul");
+        pnlBack.add(btnRojoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
-        chkRojo1.setForeground(new java.awt.Color(0, 0, 0));
-        chkRojo1.setText("Rojo");
-        pnlBack.add(chkRojo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
-
-        chkAmarillo1.setForeground(new java.awt.Color(0, 0, 0));
-        chkAmarillo1.setText("Amarillo");
-        pnlBack.add(chkAmarillo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
-
-        chkVerde1.setForeground(new java.awt.Color(0, 0, 0));
-        chkVerde1.setText("Verde");
-        pnlBack.add(chkVerde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
-
-        chkVerde2.setForeground(new java.awt.Color(0, 0, 0));
-        chkVerde2.setText("Verde");
-        pnlBack.add(chkVerde2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
-
-        chkAzul2.setForeground(new java.awt.Color(0, 0, 0));
-        chkAzul2.setText("Azul");
-        pnlBack.add(chkAzul2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
-
-        chkRojo2.setForeground(new java.awt.Color(0, 0, 0));
-        chkRojo2.setText("Rojo");
-        pnlBack.add(chkRojo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
-
-        chkAmarillo2.setForeground(new java.awt.Color(0, 0, 0));
-        chkAmarillo2.setText("Amarillo");
-        pnlBack.add(chkAmarillo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
+        btnAmarilloRojo.setText("Amarillo + Rojo");
+        pnlBack.add(btnAmarilloRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,6 +120,10 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRojoAmarilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRojoAmarilloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRojoAmarilloActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -164,21 +133,15 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
     private javax.swing.JLabel ColorSecundario1;
     private javax.swing.JLabel ColorSecundario2;
     private javax.swing.JLabel ColorSecundario3;
+    private javax.swing.JButton btnAmarilloAzul;
+    private javax.swing.JButton btnAmarilloRojo;
+    private javax.swing.JButton btnAzulAmarillo;
+    private javax.swing.JButton btnAzulRojo;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnRojoAmarillo;
+    private javax.swing.JButton btnRojoAzul;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolverMenu;
-    private javax.swing.JCheckBox chkAmarillo;
-    private javax.swing.JCheckBox chkAmarillo1;
-    private javax.swing.JCheckBox chkAmarillo2;
-    private javax.swing.JCheckBox chkAzul;
-    private javax.swing.JCheckBox chkAzul1;
-    private javax.swing.JCheckBox chkAzul2;
-    private javax.swing.JCheckBox chkRojo;
-    private javax.swing.JCheckBox chkRojo1;
-    private javax.swing.JCheckBox chkRojo2;
-    private javax.swing.JCheckBox chkVerde;
-    private javax.swing.JCheckBox chkVerde1;
-    private javax.swing.JCheckBox chkVerde2;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables
 }

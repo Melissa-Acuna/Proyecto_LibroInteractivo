@@ -23,7 +23,7 @@ public class GUI_Resultados extends javax.swing.JFrame {
      public void addButtonListener(ActionListener listener) {
 
         btnRegresar.setActionCommand("REGRESAR_RESULTADOS");
-        btnVolverMenu.setActionCommand("MENU");
+        btnVolverMenu.setActionCommand("VOLVER AL MENU");
         btnSalir.setActionCommand("SALIR");
 
         btnRegresar.addActionListener(listener);
