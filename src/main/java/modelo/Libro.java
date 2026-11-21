@@ -58,4 +58,5 @@ public class Libro {
     public ArrayList<Pagina> getPaginas() {
         return new ArrayList<>(paginas);
     }
+    
 }

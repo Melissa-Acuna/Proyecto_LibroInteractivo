@@ -102,5 +102,4 @@ public class ControladorSistema implements ActionListener {
                 "Identifique qué colores se forman al mezclar los colores primarios"
         ));
     }
-
 }
