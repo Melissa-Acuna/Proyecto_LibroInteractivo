@@ -13,6 +13,8 @@ import vista.GUI_ColoresPrimarios;
 import vista.GUI_ColoresSecundarios;
 import vista.GUI_Menu;
 import vista.GUI_Resultados;
+import modelo.PaginaInformativa;
+import modelo.PaginaActividad;
 
 /**
  *
@@ -30,6 +32,8 @@ public class ControladorSistema implements ActionListener {
 
         modelo = new Libro();
         vista = new GUI_Menu();
+        
+        prepararLibro();
 
         vista.addMenuListener(this);
     }
@@ -78,4 +82,24 @@ public class ControladorSistema implements ActionListener {
         controladorColores.iniciar();
     }
 
+    private void prepararLibro() {
+
+        modelo.agregarPagina(new PaginaInformativa(
+                "Colores Primarios",
+                1,
+                "Los colores primarios son rojo, amarillo y azúl"
+        ));
+        
+        modelo.agregarPagina(new PaginaInformativa(
+                "Colores Secundarios",
+                2,
+                "Los colores secundarios se forman mezcalndo dos colores primarios"
+        ));
+        
+        modelo.agregarPagina(new PaginaActividad(
+                "Actividad de Colores",
+                3,
+                "Identifique qué colores se forman al mezclar los colores primarios"
+        ));
+    }
 }
