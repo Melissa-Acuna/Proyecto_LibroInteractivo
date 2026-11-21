@@ -7,6 +7,7 @@ package modelo;
 /**
  *
  * @author Yirlani
+ * Melissa Acuña C10057
  */
 public abstract class Pagina {
 

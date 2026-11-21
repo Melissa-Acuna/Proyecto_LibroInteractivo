@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Yirlani
+ * Melissa Acuña C10057
  */
 public class Libro {
 

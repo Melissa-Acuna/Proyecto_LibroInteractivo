@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 /**
  *
  * @author Yirlani
+ * Melissa Acuña C10057
  */
 public class GUI_ActividadColores extends javax.swing.JFrame {
     

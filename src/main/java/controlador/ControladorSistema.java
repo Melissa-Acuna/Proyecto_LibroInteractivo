@@ -19,6 +19,7 @@ import modelo.PaginaActividad;
 /**
  *
  * @author Yirlani
+ * Melissa Acuña C10057
  */
 public class ControladorSistema implements ActionListener {
 

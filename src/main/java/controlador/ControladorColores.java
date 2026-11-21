@@ -16,6 +16,7 @@ import vista.GUI_Resultados;
 /**
  *
  * @author Yirlani
+ * Melissa Acuña C10057
  */
 public class ControladorColores implements ActionListener {
 
