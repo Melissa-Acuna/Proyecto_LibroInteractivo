@@ -15,12 +15,21 @@ import vista.GUI_Resultados;
 
 /**
  *
- * @author Yirlani
- * Melissa Acuña C10057
+ * @author Yirlani Melissa Acuña C10057
  */
 public class ControladorColores implements ActionListener {
 
     private Libro modelo;
+
+    //contadores de respuestas
+    private int respuestasCorrectas = 0;
+    private int respuestasIncorrectas = 0;
+
+    //control para saber qué preguntas ya fueron contestadas
+    private boolean pregunta1Respondida = false;
+    private boolean pregunta2Respondida = false;
+    private boolean pregunta3Respondida = false;
+    
 
     // Vistas
     private GUI_Menu vistaMenu;
@@ -40,6 +49,8 @@ public class ControladorColores implements ActionListener {
         vistaSecundarios.addButtonListener(this);
         actividadColores.addButtonListener(this);
         resultados.addButtonListener(this);
+
+        actividadColores.habilitarSiguiente(false);
     }
 
     @Override
@@ -50,51 +61,128 @@ public class ControladorColores implements ActionListener {
         switch (op) {
 
             case "SIGUIENTE":
-            vistaPrimarios.setVisible(false);
-            vistaSecundarios.setLocationRelativeTo(null);
-            vistaSecundarios.setVisible(true);
-            break;
+                vistaPrimarios.setVisible(false);
+                vistaSecundarios.setLocationRelativeTo(null);
+                vistaSecundarios.setVisible(true);
+                break;
 
-        case "ACTIVIDAD":
-            vistaSecundarios.setVisible(false);
-            actividadColores.setLocationRelativeTo(null);
-            actividadColores.setVisible(true);
-            break;
+            case "ACTIVIDAD":
+                vistaSecundarios.setVisible(false);
+                actividadColores.setLocationRelativeTo(null);
+                actividadColores.setVisible(true);
+                break;
 
-        case "RESULTADOS":
-            actividadColores.setVisible(false);
-            resultados.setLocationRelativeTo(null);
-            resultados.setVisible(true);
-            break;
+                //lo modifiqué para que agregara los resultados de la actividad
+            case "RESULTADOS":
+                resultados.mostrarResultados(respuestasCorrectas, respuestasIncorrectas);
 
-        case "VOLVER AL MENU":
-            vistaPrimarios.setVisible(false);
-            vistaMenu.setVisible(true);
-            vistaSecundarios.setVisible(false);
-            actividadColores.setVisible(false);
-            resultados.setVisible(false);
-            vistaMenu.setVisible(true);
-            break;
+                actividadColores.setVisible(false);
+                resultados.setLocationRelativeTo(null);
+                resultados.setVisible(true);
+                break;
 
-        case "REGRESAR":
-            vistaSecundarios.setVisible(false);
-            vistaPrimarios.setVisible(true);
-            break;
+            case "VOLVER AL MENU":
+                vistaPrimarios.setVisible(false);
+                vistaMenu.setVisible(true);
+                vistaSecundarios.setVisible(false);
+                actividadColores.setVisible(false);
+                resultados.setVisible(false);
+                vistaMenu.setVisible(true);
+                break;
 
-        case "REGRESAR_ACTIVIDAD":
-            actividadColores.setVisible(false);
-            vistaSecundarios.setVisible(true);
-            break;
+            case "REGRESAR":
+                vistaSecundarios.setVisible(false);
+                vistaPrimarios.setVisible(true);
+                break;
 
-        case "REGRESAR_RESULTADOS":
-            resultados.setVisible(false);
-            actividadColores.setVisible(true);
-            break;
+            case "REGRESAR_ACTIVIDAD":
+                actividadColores.setVisible(false);
+                vistaSecundarios.setVisible(true);
+                break;
 
-        case "SALIR":
-            System.exit(0);
-            break;
+            case "REGRESAR_RESULTADOS":
+                resultados.setVisible(false);
+                actividadColores.setVisible(true);
+                break;
+
+            case "SALIR":
+                System.exit(0);
+                break;
+
+            //respuestas de la actividad
+            case "NARANJA_CORRECTO":
+                if (!pregunta1Respondida) {
+                    respuestasCorrectas++;
+                    pregunta1Respondida = true;
+
+                    actividadColores.bloquearPregunta(1);
+                    verificarActividad();
+                }
+                break;
+
+            case "NARANJA_INCORRECTO":
+
+                if (!pregunta1Respondida) {
+                    respuestasIncorrectas++;
+                    pregunta1Respondida = true;
+
+                    actividadColores.bloquearPregunta(1);
+                    verificarActividad();
+                }
+                break;
+
+            case "VERDE_CORRECTO":
+
+                if (!pregunta2Respondida) {
+                    respuestasCorrectas++;
+                    pregunta2Respondida = true;
+
+                    actividadColores.bloquearPregunta(2);
+                    verificarActividad();
+                }
+                break;
+
+            case "VERDE_INCORRECTO":
+
+                if (!pregunta2Respondida) {
+                    respuestasIncorrectas++;
+                    pregunta2Respondida = true;
+
+                    actividadColores.bloquearPregunta(2);
+                    verificarActividad();
+                }
+                break;
+
+            case "MORADO_CORRECTO":
+
+                if (!pregunta3Respondida) {
+                    respuestasCorrectas++;
+                    pregunta3Respondida = true;
+
+                    actividadColores.bloquearPregunta(3);
+                    verificarActividad();
+                }
+                break;
+
+            case "MORADO_INCORRECTO":
+
+                if (!pregunta3Respondida) {
+                    respuestasIncorrectas++;
+                    pregunta3Respondida = true;
+
+                    actividadColores.bloquearPregunta(3);
+                    verificarActividad();
+                }
+                break;
+        }
     }
+
+    //verifica si las preguntas fueron respondidas
+    private void verificarActividad() {
+
+        if (pregunta1Respondida && pregunta2Respondida && pregunta3Respondida) {
+            actividadColores.habilitarSiguiente(true);
+        }
     }
 
     public void iniciar() {
