@@ -8,12 +8,9 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Yirlani
- * Melissa Acuña C10057
+ * @author Yirlani Melissa Acuña C10057
  */
 public class GUI_Resultados extends javax.swing.JFrame {
-    
-    
 
     /**
      * Creates new form GUI_Resultados
@@ -21,7 +18,8 @@ public class GUI_Resultados extends javax.swing.JFrame {
     public GUI_Resultados() {
         initComponents();
     }
-     public void addButtonListener(ActionListener listener) {
+
+    public void addButtonListener(ActionListener listener) {
 
         btnRegresar.setActionCommand("REGRESAR_RESULTADOS");
         btnVolverMenu.setActionCommand("VOLVER AL MENU");
@@ -30,6 +28,28 @@ public class GUI_Resultados extends javax.swing.JFrame {
         btnRegresar.addActionListener(listener);
         btnVolverMenu.addActionListener(listener);
         btnSalir.addActionListener(listener);
+    }
+
+    //mostrar los resultados de la actividad
+    public void mostrarResultados(int correctas, int incorrectas) {
+
+        int porcentaje = (correctas * 100) / 3;
+
+        lblCorrectas.setText("Respuestas correctas: " + correctas);
+        lblIncorrectas.setText("Respuestas incorrectas: " + incorrectas);
+        lblPorcentaje.setText("Porcentaje: " + porcentaje + "%");
+
+        //mensaje según el resultado obtenido
+        if (porcentaje == 100) {
+            lblMensaje.setText("Excelente! Todas las respuestas son correctas.");
+
+        } else if (porcentaje >= 60) {
+            lblMensaje.setText("Buen trabajo! Sigue practicando.");
+
+        } else {
+            lblMensaje.setText("Puedes volver a intentarlo");
+        }
+        
     }
 
     /**
@@ -46,6 +66,10 @@ public class GUI_Resultados extends javax.swing.JFrame {
         btnVolverMenu = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        lblCorrectas = new javax.swing.JLabel();
+        lblIncorrectas = new javax.swing.JLabel();
+        lblPorcentaje = new javax.swing.JLabel();
+        lblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +91,22 @@ public class GUI_Resultados extends javax.swing.JFrame {
         lblTitulo.setText("Resultados");
         pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
+        lblCorrectas.setForeground(new java.awt.Color(0, 0, 0));
+        lblCorrectas.setText("Respuestas correctas: 0");
+        pnlBack.add(lblCorrectas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        lblIncorrectas.setForeground(new java.awt.Color(0, 0, 0));
+        lblIncorrectas.setText("Respuestas incorrectas: 0");
+        pnlBack.add(lblIncorrectas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        lblPorcentaje.setForeground(new java.awt.Color(0, 0, 0));
+        lblPorcentaje.setText("Porcentaje: 0%");
+        pnlBack.add(lblPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+
+        lblMensaje.setForeground(new java.awt.Color(0, 0, 0));
+        lblMensaje.setText("Completa la actividad!");
+        pnlBack.add(lblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,12 +124,15 @@ public class GUI_Resultados extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JLabel lblCorrectas;
+    private javax.swing.JLabel lblIncorrectas;
+    private javax.swing.JLabel lblMensaje;
+    private javax.swing.JLabel lblPorcentaje;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables

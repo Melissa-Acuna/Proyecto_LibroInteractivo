@@ -8,12 +8,9 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Yirlani
- * Melissa Acuña C10057
+ * @author Yirlani Melissa Acuña C10057
  */
 public class GUI_ActividadColores extends javax.swing.JFrame {
-    
-
 
     /**
      * Creates new form GUI_ActividadColores
@@ -21,19 +18,36 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
     public GUI_ActividadColores() {
         initComponents();
     }
-     public void addButtonListener(ActionListener listener) {
 
-        
+    public void addButtonListener(ActionListener listener) {
 
+        //botones de navegacion
         btnVolverMenu.setActionCommand("VOLVER AL MENU");
         btnRegresar.setActionCommand("REGRESAR_ACTIVIDAD");
         btnSiguiente.setActionCommand("RESULTADOS");
 
-      
-
         btnVolverMenu.addActionListener(listener);
         btnRegresar.addActionListener(listener);
         btnSiguiente.addActionListener(listener);
+
+        //botones de respuesta
+        btnRojoAmarillo.setActionCommand("NARANJA_CORRECTO");
+        btnAzulAmarillo.setActionCommand("NARANJA_INCORRECTO");
+
+        btnRojoAmarillo.addActionListener(listener);
+        btnAzulAmarillo.addActionListener(listener);
+
+        btnAmarilloAzul.setActionCommand("VERDE_CORRECTO");
+        btnAzulRojo.setActionCommand("VERDE_INCORRECTO");
+
+        btnAmarilloAzul.addActionListener(listener);
+        btnAzulRojo.addActionListener(listener);
+
+        btnRojoAzul.setActionCommand("MORADO_CORRECTO");
+        btnAmarilloRojo.setActionCommand("MORADO_INCORRECTO");
+
+        btnRojoAzul.addActionListener(listener);
+        btnAmarilloRojo.addActionListener(listener);
     }
 
     /**
@@ -128,7 +142,6 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ColorSecundario1;
@@ -145,4 +158,45 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
     private javax.swing.JButton btnVolverMenu;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables
+
+    //desactiva los botones de una pregunta
+    public void bloquearPregunta(int pregunta) {
+
+        switch (pregunta) {
+
+            case 1:
+                btnRojoAmarillo.setEnabled(false);
+                btnAzulAmarillo.setEnabled(false);
+                break;
+
+            case 2:
+                btnAmarilloAzul.setEnabled(false);
+                btnAzulRojo.setEnabled(false);
+                break;
+
+            case 3:
+                btnRojoAzul.setEnabled(false);
+                btnAmarilloRojo.setEnabled(false);
+                break;
+        }
+        
+    }
+
+    //vuelve a activar los botones
+    public void reiniciarActividad() {
+
+        btnRojoAmarillo.setEnabled(true);
+        btnAzulAmarillo.setEnabled(true);
+
+        btnAmarilloAzul.setEnabled(true);
+        btnAzulRojo.setEnabled(true);
+
+        btnRojoAzul.setEnabled(true);
+        btnAmarilloRojo.setEnabled(true);
+    }
+    
+    //activa o desactiva el boton siguiente
+    public void habilitarSiguiente(boolean estado) {
+        btnSiguiente.setEnabled(estado);
+    }
 }
