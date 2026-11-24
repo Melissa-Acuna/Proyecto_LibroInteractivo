@@ -48,8 +48,22 @@ public class GUI_Resultados extends javax.swing.JFrame {
 
         } else {
             lblMensaje.setText("You can try again.");
+        lblCorrectas.setText("Respuestas correctas: " + correctas);
+        lblIncorrectas.setText("Respuestas incorrectas: " + incorrectas);
+        lblPorcentaje.setText("Porcentaje: " + porcentaje + "%");
+
+        //mensaje según el resultado obtenido
+        if (porcentaje == 100) {
+            lblMensaje.setText("Excelente! Todas las respuestas son correctas.");
+
+        } else if (porcentaje >= 60) {
+            lblMensaje.setText("Buen trabajo! Sigue practicando.");
+
+        } else {
+            lblMensaje.setText("Puedes volver a intentarlo");
         }
         
+    }
     }
 
     /**
@@ -71,6 +85,10 @@ public class GUI_Resultados extends javax.swing.JFrame {
         lblPorcentaje = new javax.swing.JLabel();
         lblMensaje = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
+        lblCorrectas1 = new javax.swing.JLabel();
+        lblIncorrectas1 = new javax.swing.JLabel();
+        lblPorcentaje1 = new javax.swing.JLabel();
+        lblMensaje1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(510, 760));
@@ -122,6 +140,22 @@ public class GUI_Resultados extends javax.swing.JFrame {
         lblBackground.setMinimumSize(new java.awt.Dimension(553, 768));
         pnlBack.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lblCorrectas1.setForeground(new java.awt.Color(0, 0, 0));
+        lblCorrectas1.setText("Respuestas correctas: 0");
+        pnlBack.add(lblCorrectas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        lblIncorrectas1.setForeground(new java.awt.Color(0, 0, 0));
+        lblIncorrectas1.setText("Respuestas incorrectas: 0");
+        pnlBack.add(lblIncorrectas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        lblPorcentaje1.setForeground(new java.awt.Color(0, 0, 0));
+        lblPorcentaje1.setText("Porcentaje: 0%");
+        pnlBack.add(lblPorcentaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+
+        lblMensaje1.setForeground(new java.awt.Color(0, 0, 0));
+        lblMensaje1.setText("Completa la actividad!");
+        pnlBack.add(lblMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,9 +184,13 @@ public class GUI_Resultados extends javax.swing.JFrame {
     private javax.swing.JButton btnVolverMenu;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblCorrectas;
+    private javax.swing.JLabel lblCorrectas1;
     private javax.swing.JLabel lblIncorrectas;
+    private javax.swing.JLabel lblIncorrectas1;
     private javax.swing.JLabel lblMensaje;
+    private javax.swing.JLabel lblMensaje1;
     private javax.swing.JLabel lblPorcentaje;
+    private javax.swing.JLabel lblPorcentaje1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables
