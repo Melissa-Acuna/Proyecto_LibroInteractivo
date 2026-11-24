@@ -15,6 +15,7 @@ import vista.GUI_Menu;
 import vista.GUI_Resultados;
 import modelo.PaginaInformativa;
 import modelo.PaginaActividad;
+import vista.GUI_Portada;
 
 /**
  *
@@ -28,15 +29,18 @@ public class ControladorSistema implements ActionListener {
 
     // Vista
     private GUI_Menu vista;
+    private GUI_Portada portada;
 
     public ControladorSistema() {
 
         modelo = new Libro();
         vista = new GUI_Menu();
+        portada = new GUI_Portada ();
         
         prepararLibro();
 
         vista.addMenuListener(this);
+        portada.addButtonListener(this);
     }
 
     @Override
@@ -45,6 +49,12 @@ public class ControladorSistema implements ActionListener {
         String op = e.getActionCommand();
 
         switch (op) {
+            
+            case "MENU":
+                portada.setVisible(false);
+                vista.setLocationRelativeTo(null);
+                vista.setVisible(true);
+                break;
 
             case "COLORES":
                 abrirColores();
@@ -66,8 +76,8 @@ public class ControladorSistema implements ActionListener {
 
     public void iniciar() {
 
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
+        portada.setLocationRelativeTo(null);
+        portada.setVisible(true);
     }
 
     public void abrirColores() {
