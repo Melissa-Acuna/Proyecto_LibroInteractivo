@@ -47,44 +47,71 @@ public class GUI_Menu extends javax.swing.JFrame {
         btnFamilia = new javax.swing.JButton();
         btnComida = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        lblTitulo = new javax.swing.JLabel();
+        lblIndice = new javax.swing.JLabel();
+        lblInstruccion = new javax.swing.JLabel();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlBack.setBackground(new java.awt.Color(204, 255, 255));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnColores.setText("Colores");
+        btnColores.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnColores.setForeground(new java.awt.Color(0, 0, 0));
+        btnColores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnTemas.png"))); // NOI18N
+        btnColores.setText("Colors");
+        btnColores.setBorderPainted(false);
+        btnColores.setContentAreaFilled(false);
         btnColores.addActionListener(this::btnColoresActionPerformed);
-        pnlBack.add(btnColores, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
+        pnlBack.add(btnColores, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 150, -1));
 
-        btnFamilia.setText("Familia");
+        btnFamilia.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFamilia.setForeground(new java.awt.Color(0, 0, 0));
+        btnFamilia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnTemas.png"))); // NOI18N
+        btnFamilia.setText("Family");
+        btnFamilia.setBorderPainted(false);
+        btnFamilia.setContentAreaFilled(false);
         btnFamilia.addActionListener(this::btnFamiliaActionPerformed);
-        pnlBack.add(btnFamilia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+        pnlBack.add(btnFamilia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
 
-        btnComida.setText("Comida");
+        btnComida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnComida.setForeground(new java.awt.Color(0, 0, 0));
+        btnComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnTemas.png"))); // NOI18N
+        btnComida.setText("Food");
+        btnComida.setBorderPainted(false);
+        btnComida.setContentAreaFilled(false);
         btnComida.addActionListener(this::btnComidaActionPerformed);
-        pnlBack.add(btnComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
+        pnlBack.add(btnComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
 
-        btnSalir.setText("Salir");
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnExit.png"))); // NOI18N
+        btnSalir.setBorderPainted(false);
+        btnSalir.setContentAreaFilled(false);
         btnSalir.addActionListener(this::btnSalirActionPerformed);
-        pnlBack.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
+        pnlBack.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, -1));
 
-        lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
-        lblTitulo.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        lblTitulo.setText("The Little bookworm");
-        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        lblIndice.setBackground(new java.awt.Color(0, 0, 0));
+        lblIndice.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
+        lblIndice.setForeground(new java.awt.Color(0, 0, 0));
+        lblIndice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblIndice.png"))); // NOI18N
+        pnlBack.add(lblIndice, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+
+        lblInstruccion.setForeground(new java.awt.Color(0, 0, 0));
+        lblInstruccion.setText("Press the flower, it will show the selected content!");
+        pnlBack.add(lblInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background2.png"))); // NOI18N
+        lblBackground.setText("jLabel1");
+        pnlBack.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 760));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -116,7 +143,9 @@ public class GUI_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnComida;
     private javax.swing.JButton btnFamilia;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblIndice;
+    private javax.swing.JLabel lblInstruccion;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables
 }

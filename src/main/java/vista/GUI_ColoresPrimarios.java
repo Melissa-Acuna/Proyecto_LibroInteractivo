@@ -43,34 +43,78 @@ public class GUI_ColoresPrimarios extends javax.swing.JFrame {
         btnVolverMenu = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        txtContenido = new javax.swing.JTextArea();
+        lblRed = new javax.swing.JLabel();
+        lblBlue = new javax.swing.JLabel();
+        lblYellow = new javax.swing.JLabel();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlBack.setBackground(new java.awt.Color(204, 255, 255));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVolverMenu.setText("Volver al Menu");
+        btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBackMenu.png"))); // NOI18N
+        btnVolverMenu.setBorderPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
         btnVolverMenu.addActionListener(this::btnVolverMenuActionPerformed);
-        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, -1, -1));
 
-        btnSiguiente.setText("Siguiente");
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnNext.png"))); // NOI18N
+        btnSiguiente.setBorderPainted(false);
+        btnSiguiente.setContentAreaFilled(false);
         btnSiguiente.addActionListener(this::btnSiguienteActionPerformed);
-        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
+        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 660, -1, -1));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        lblTitulo.setText("Colores Primarios");
-        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        lblTitulo.setText("Primary Colors");
+        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+
+        txtContenido.setEditable(false);
+        txtContenido.setBackground(new java.awt.Color(204, 255, 255));
+        txtContenido.setColumns(20);
+        txtContenido.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtContenido.setForeground(new java.awt.Color(0, 0, 0));
+        txtContenido.setRows(5);
+        txtContenido.setText("The Primary Colors are Red, Blue and Yellow.\nThey are primary because they cannot be made with any other color.");
+        txtContenido.setAutoscrolls(false);
+        txtContenido.setCaretColor(new java.awt.Color(204, 255, 255));
+        txtContenido.setOpaque(false);
+        pnlBack.add(txtContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, 50));
+
+        lblRed.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblRed.setForeground(new java.awt.Color(51, 0, 0));
+        lblRed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblRed.png"))); // NOI18N
+        lblRed.setText("RED");
+        pnlBack.add(lblRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        lblBlue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblBlue.setForeground(new java.awt.Color(0, 0, 51));
+        lblBlue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblBlue.png"))); // NOI18N
+        lblBlue.setText("BLUE");
+        pnlBack.add(lblBlue, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
+
+        lblYellow.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblYellow.setForeground(new java.awt.Color(0, 0, 0));
+        lblYellow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblYellow.png"))); // NOI18N
+        lblYellow.setText("YELLOW");
+        pnlBack.add(lblYellow, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background2.png"))); // NOI18N
+        lblBackground.setMaximumSize(new java.awt.Dimension(553, 768));
+        lblBackground.setMinimumSize(new java.awt.Dimension(553, 768));
+        pnlBack.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -92,7 +136,12 @@ public class GUI_ColoresPrimarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblBlue;
+    private javax.swing.JLabel lblRed;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblYellow;
     private javax.swing.JPanel pnlBack;
+    private javax.swing.JTextArea txtContenido;
     // End of variables declaration//GEN-END:variables
 }

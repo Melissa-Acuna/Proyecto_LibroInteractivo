@@ -8,12 +8,9 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Yirlani
- * Melissa Acuña C10057
+ * @author Yirlani Melissa Acuña C10057
  */
 public class GUI_Resultados extends javax.swing.JFrame {
-    
-    
 
     /**
      * Creates new form GUI_Resultados
@@ -21,7 +18,8 @@ public class GUI_Resultados extends javax.swing.JFrame {
     public GUI_Resultados() {
         initComponents();
     }
-     public void addButtonListener(ActionListener listener) {
+
+    public void addButtonListener(ActionListener listener) {
 
         btnRegresar.setActionCommand("REGRESAR_RESULTADOS");
         btnVolverMenu.setActionCommand("VOLVER AL MENU");
@@ -30,6 +28,28 @@ public class GUI_Resultados extends javax.swing.JFrame {
         btnRegresar.addActionListener(listener);
         btnVolverMenu.addActionListener(listener);
         btnSalir.addActionListener(listener);
+    }
+
+    //mostrar los resultados de la actividad
+    public void mostrarResultados(int correctas, int incorrectas) {
+
+        int porcentaje = (correctas * 100) / 3;
+
+        lblCorrectas.setText("Correct Answers: " + correctas);
+        lblIncorrectas.setText("Wrong Answers: " + incorrectas);
+        lblPorcentaje.setText("Percentage: " + porcentaje + "%");
+
+        //mensaje según el resultado obtenido
+        if (porcentaje == 100) {
+            lblMensaje.setText("Good Job! You have answer all perfectly.");
+
+        } else if (porcentaje >= 60) {
+            lblMensaje.setText("Nice! Keep practicing.");
+
+        } else {
+            lblMensaje.setText("You can try again.");
+        }
+        
     }
 
     /**
@@ -46,50 +66,93 @@ public class GUI_Resultados extends javax.swing.JFrame {
         btnVolverMenu = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        lblCorrectas = new javax.swing.JLabel();
+        lblIncorrectas = new javax.swing.JLabel();
+        lblPorcentaje = new javax.swing.JLabel();
+        lblMensaje = new javax.swing.JLabel();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(510, 760));
 
         pnlBack.setBackground(new java.awt.Color(204, 255, 255));
         pnlBack.setForeground(new java.awt.Color(204, 255, 255));
+        pnlBack.setMaximumSize(new java.awt.Dimension(553, 768));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar.setText("Regresar");
-        pnlBack.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBack.png"))); // NOI18N
+        btnRegresar.setBorderPainted(false);
+        btnRegresar.setContentAreaFilled(false);
+        btnRegresar.addActionListener(this::btnRegresarActionPerformed);
+        pnlBack.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
-        btnVolverMenu.setText("Volver al Menu");
-        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
+        btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBackMenu.png"))); // NOI18N
+        btnVolverMenu.setBorderPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
+        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
 
-        btnSalir.setText("Salir");
-        pnlBack.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, -1, -1));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnExit.png"))); // NOI18N
+        btnSalir.setBorderPainted(false);
+        btnSalir.setContentAreaFilled(false);
+        pnlBack.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 640, -1, -1));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        lblTitulo.setText("Resultados");
-        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        lblTitulo.setText("Score");
+        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+
+        lblCorrectas.setForeground(new java.awt.Color(0, 0, 0));
+        lblCorrectas.setText("Correct Answers: ");
+        pnlBack.add(lblCorrectas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        lblIncorrectas.setForeground(new java.awt.Color(0, 0, 0));
+        lblIncorrectas.setText("Respuestas incorrectas: 0");
+        pnlBack.add(lblIncorrectas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+
+        lblPorcentaje.setForeground(new java.awt.Color(0, 0, 0));
+        lblPorcentaje.setText("Percentaje: ");
+        pnlBack.add(lblPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+
+        lblMensaje.setForeground(new java.awt.Color(0, 0, 0));
+        lblMensaje.setText("Activity Complete!");
+        pnlBack.add(lblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background1.png"))); // NOI18N
+        lblBackground.setMaximumSize(new java.awt.Dimension(553, 768));
+        lblBackground.setMinimumSize(new java.awt.Dimension(553, 768));
+        pnlBack.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblCorrectas;
+    private javax.swing.JLabel lblIncorrectas;
+    private javax.swing.JLabel lblMensaje;
+    private javax.swing.JLabel lblPorcentaje;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables

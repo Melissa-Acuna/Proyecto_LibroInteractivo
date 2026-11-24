@@ -8,12 +8,9 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Yirlani
- * Melissa Acuña C10057
+ * @author Yirlani Melissa Acuña C10057
  */
 public class GUI_ActividadColores extends javax.swing.JFrame {
-    
-
 
     /**
      * Creates new form GUI_ActividadColores
@@ -21,19 +18,36 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
     public GUI_ActividadColores() {
         initComponents();
     }
-     public void addButtonListener(ActionListener listener) {
 
-        
+    public void addButtonListener(ActionListener listener) {
 
+        //botones de navegacion
         btnVolverMenu.setActionCommand("VOLVER AL MENU");
         btnRegresar.setActionCommand("REGRESAR_ACTIVIDAD");
         btnSiguiente.setActionCommand("RESULTADOS");
 
-      
-
         btnVolverMenu.addActionListener(listener);
         btnRegresar.addActionListener(listener);
         btnSiguiente.addActionListener(listener);
+
+        //botones de respuesta
+        btnRojoAmarillo.setActionCommand("NARANJA_CORRECTO");
+        btnAzulAmarillo.setActionCommand("NARANJA_INCORRECTO");
+
+        btnRojoAmarillo.addActionListener(listener);
+        btnAzulAmarillo.addActionListener(listener);
+
+        btnAmarilloAzul.setActionCommand("VERDE_CORRECTO");
+        btnAzulRojo.setActionCommand("VERDE_INCORRECTO");
+
+        btnAmarilloAzul.addActionListener(listener);
+        btnAzulRojo.addActionListener(listener);
+
+        btnRojoAzul.setActionCommand("MORADO_CORRECTO");
+        btnAmarilloRojo.setActionCommand("MORADO_INCORRECTO");
+
+        btnRojoAzul.addActionListener(listener);
+        btnAmarilloRojo.addActionListener(listener);
     }
 
     /**
@@ -58,64 +72,78 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
         btnAzulRojo = new javax.swing.JButton();
         btnRojoAzul = new javax.swing.JButton();
         btnAmarilloRojo = new javax.swing.JButton();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlBack.setBackground(new java.awt.Color(204, 255, 255));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar.setText("Regresar");
-        pnlBack.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBack.png"))); // NOI18N
+        btnRegresar.setBorderPainted(false);
+        btnRegresar.setContentAreaFilled(false);
+        pnlBack.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
-        btnVolverMenu.setText("Volver al menu");
-        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, -1, -1));
+        btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBackMenu.png"))); // NOI18N
+        btnVolverMenu.setBorderPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
+        btnVolverMenu.addActionListener(this::btnVolverMenuActionPerformed);
+        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, -1, -1));
 
-        btnSiguiente.setText("Siguiente");
-        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnNext.png"))); // NOI18N
+        btnSiguiente.setBorderPainted(false);
+        btnSiguiente.setContentAreaFilled(false);
+        btnSiguiente.addActionListener(this::btnSiguienteActionPerformed);
+        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 670, -1, -1));
 
         ColorSecundario1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         ColorSecundario1.setForeground(new java.awt.Color(0, 0, 0));
-        ColorSecundario1.setText("Naranja");
-        pnlBack.add(ColorSecundario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+        ColorSecundario1.setText("Orange");
+        pnlBack.add(ColorSecundario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
         ColorSecundario2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         ColorSecundario2.setForeground(new java.awt.Color(0, 0, 0));
-        ColorSecundario2.setText("Verde");
-        pnlBack.add(ColorSecundario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+        ColorSecundario2.setText("Green");
+        pnlBack.add(ColorSecundario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         ColorSecundario3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         ColorSecundario3.setForeground(new java.awt.Color(0, 0, 0));
-        ColorSecundario3.setText("Morado");
-        pnlBack.add(ColorSecundario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
+        ColorSecundario3.setText("Purple");
+        pnlBack.add(ColorSecundario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
 
-        btnRojoAmarillo.setText("Rojo + Amarillo");
+        btnRojoAmarillo.setText("Red + Yellow");
         btnRojoAmarillo.addActionListener(this::btnRojoAmarilloActionPerformed);
-        pnlBack.add(btnRojoAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        pnlBack.add(btnRojoAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
-        btnAzulAmarillo.setText("Azul + Amarillo");
-        pnlBack.add(btnAzulAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
+        btnAzulAmarillo.setText("Blue + Yellow");
+        pnlBack.add(btnAzulAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
-        btnAmarilloAzul.setText("Amarillo + Azul");
-        pnlBack.add(btnAmarilloAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        btnAmarilloAzul.setText("Yellow + Blue");
+        pnlBack.add(btnAmarilloAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
-        btnAzulRojo.setText("Azul + Rojo");
-        pnlBack.add(btnAzulRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
+        btnAzulRojo.setText("Blue + Red");
+        pnlBack.add(btnAzulRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
 
-        btnRojoAzul.setText("Rojo + Azul");
-        pnlBack.add(btnRojoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        btnRojoAzul.setText("Red + Blue");
+        pnlBack.add(btnRojoAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
 
-        btnAmarilloRojo.setText("Amarillo + Rojo");
-        pnlBack.add(btnAmarilloRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
+        btnAmarilloRojo.setText("Yellow + Red");
+        pnlBack.add(btnAmarilloRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background2.png"))); // NOI18N
+        lblBackground.setMaximumSize(new java.awt.Dimension(553, 768));
+        lblBackground.setMinimumSize(new java.awt.Dimension(553, 768));
+        pnlBack.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -125,10 +153,17 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRojoAmarilloActionPerformed
 
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ColorSecundario1;
@@ -143,6 +178,48 @@ public class GUI_ActividadColores extends javax.swing.JFrame {
     private javax.swing.JButton btnRojoAzul;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JLabel lblBackground;
     private javax.swing.JPanel pnlBack;
     // End of variables declaration//GEN-END:variables
+
+    //desactiva los botones de una pregunta
+    public void bloquearPregunta(int pregunta) {
+
+        switch (pregunta) {
+
+            case 1:
+                btnRojoAmarillo.setEnabled(false);
+                btnAzulAmarillo.setEnabled(false);
+                break;
+
+            case 2:
+                btnAmarilloAzul.setEnabled(false);
+                btnAzulRojo.setEnabled(false);
+                break;
+
+            case 3:
+                btnRojoAzul.setEnabled(false);
+                btnAmarilloRojo.setEnabled(false);
+                break;
+        }
+        
+    }
+
+    //vuelve a activar los botones
+    public void reiniciarActividad() {
+
+        btnRojoAmarillo.setEnabled(true);
+        btnAzulAmarillo.setEnabled(true);
+
+        btnAmarilloAzul.setEnabled(true);
+        btnAzulRojo.setEnabled(true);
+
+        btnRojoAzul.setEnabled(true);
+        btnAmarilloRojo.setEnabled(true);
+    }
+    
+    //activa o desactiva el boton siguiente
+    public void habilitarSiguiente(boolean estado) {
+        btnSiguiente.setEnabled(estado);
+    }
 }

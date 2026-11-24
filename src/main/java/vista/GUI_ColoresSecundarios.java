@@ -45,36 +45,80 @@ public class GUI_ColoresSecundarios extends javax.swing.JFrame {
         btnVolverMenu = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        txtContenido = new javax.swing.JTextArea();
+        lblPurple = new javax.swing.JLabel();
+        lblOrange = new javax.swing.JLabel();
+        lblGreen = new javax.swing.JLabel();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlBack.setBackground(new java.awt.Color(204, 255, 255));
         pnlBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar.setText("Regresar");
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBack.png"))); // NOI18N
+        btnRegresar.setBorderPainted(false);
+        btnRegresar.setContentAreaFilled(false);
         pnlBack.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        btnVolverMenu.setText("Volver al Menu");
-        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+        btnVolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnBackMenu.png"))); // NOI18N
+        btnVolverMenu.setBorderPainted(false);
+        btnVolverMenu.setContentAreaFilled(false);
+        btnVolverMenu.addActionListener(this::btnVolverMenuActionPerformed);
+        pnlBack.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, -1, -1));
 
-        btnSiguiente.setText("Siguiente");
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnNext.png"))); // NOI18N
+        btnSiguiente.setBorderPainted(false);
+        btnSiguiente.setContentAreaFilled(false);
         btnSiguiente.addActionListener(this::btnSiguienteActionPerformed);
-        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, -1, -1));
+        pnlBack.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 670, -1, -1));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        lblTitulo.setText("Colores Secundarios");
-        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        lblTitulo.setText("Secondary Colors");
+        pnlBack.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+
+        txtContenido.setEditable(false);
+        txtContenido.setBackground(new java.awt.Color(204, 255, 255));
+        txtContenido.setColumns(20);
+        txtContenido.setForeground(new java.awt.Color(0, 0, 0));
+        txtContenido.setRows(5);
+        txtContenido.setText("The secondary colors are the ones made based in the primary ones.\nMixing two primary colors you can get new ones, like:");
+        txtContenido.setOpaque(false);
+        pnlBack.add(txtContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        lblPurple.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblPurple.setForeground(new java.awt.Color(51, 0, 51));
+        lblPurple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblPurple.png"))); // NOI18N
+        lblPurple.setText(" BLUE and RED make PURPLE");
+        pnlBack.add(lblPurple, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+
+        lblOrange.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblOrange.setForeground(new java.awt.Color(0, 0, 0));
+        lblOrange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblOrange.png"))); // NOI18N
+        lblOrange.setText("Red and YELLOW make ORANGE");
+        pnlBack.add(lblOrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+
+        lblGreen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblGreen.setForeground(new java.awt.Color(51, 51, 0));
+        lblGreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lblGreen.png"))); // NOI18N
+        lblGreen.setText("BLUE and YELLOW make GREEN");
+        pnlBack.add(lblGreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, -1, -1));
+
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background1.png"))); // NOI18N
+        lblBackground.setMaximumSize(new java.awt.Dimension(553, 768));
+        lblBackground.setMinimumSize(new java.awt.Dimension(553, 768));
+        pnlBack.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, 763, Short.MAX_VALUE)
         );
 
         pack();
@@ -83,6 +127,10 @@ public class GUI_ColoresSecundarios extends javax.swing.JFrame {
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
      
     }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,7 +141,12 @@ public class GUI_ColoresSecundarios extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblGreen;
+    private javax.swing.JLabel lblOrange;
+    private javax.swing.JLabel lblPurple;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBack;
+    private javax.swing.JTextArea txtContenido;
     // End of variables declaration//GEN-END:variables
 }
